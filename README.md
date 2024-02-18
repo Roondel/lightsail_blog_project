@@ -1,5 +1,5 @@
 
-<img src="https://github.com/Roondel/lightsail_blog_project/assets/115371614/c9dcb3ce-8068-4a0e-9f55-765d8ae9369d" alt="RooneyCloudTech" width="800" height="100" /> 
+<img src="https://github.com/Roondel/lightsail_blog_project/assets/115371614/c9dcb3ce-8068-4a0e-9f55-765d8ae9369d" alt="RooneyCloudTech" width="1024" height="500" /> 
 
  This Module will create a lightsail EC2 instance. Please fork Repo to make your own changes. This is not an all in one module. Resources created in Lightsail do not show in your AWS console.
 
