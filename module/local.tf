@@ -1,3 +1,3 @@
 locals {
-  local_port = var.local_port
+  local_host = var.domain_host
 }

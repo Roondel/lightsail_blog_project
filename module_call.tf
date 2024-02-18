@@ -7,5 +7,7 @@ module "lightsail" {
   static_ip_name = "<insert static ip name here>"
   cert_name      = "<insert certificate name here>"
   instance_name  = "<insert instance name here>"
+  domain_host    = module.lightsail.eip_address
+  cache_behavior = "dont-cache"
 }
  
