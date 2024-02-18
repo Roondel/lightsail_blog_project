@@ -4,17 +4,17 @@ variable "domain_name" {
 }
 variable "cert_name" {
   description = "Certificate name"
-  default = "test-cert"
+  default     = "test-cert"
 
 }
 variable "record_type" {
   description = "Record type"
-  default = "A"
+  default     = "A"
 
 }
-variable "local_port" {
-  description = "port that application runs on"
-  default     = 80
+variable "domain_host" {
+  description = "domain access IP"
+  default     = "127.0.0.1"
 }
 variable "subdomain" {
   description = "subdomain for record"
@@ -34,15 +34,19 @@ variable "az" {
 }
 variable "instance_name" {
   description = "Name of the instance"
-  default = "test-instance"
+  default     = "test-instance"
 }
 variable "bundle" {
   description = "the compute size for the underlying EC2 instance. Options include nano_2_0, micro_2_0, small_2_0, medium_2_0, large_2_0, xlarge_2_0."
   default     = "nano_2_0"
 }
-variable "blueprint" {
-  description = "The blueprint ID for the instance. Blueprints define the operating system, software, and virtualization settings for an instance."
-  default     = "amazon_linux"
+variable "distro_bundle" {
+  description = "the compute size for the underlying EC2 instance for the distribution. Options include small_1_0, medium_1_0, large_1_0."
+  default     = "small_1_0"
+}
+variable "distro_name" {
+  description = "Name of the distribution"
+  default     = "test-distro"
 }
 variable "https_from_port" {
   description = "port info block. First port in a range of open ports on an instance."
@@ -56,4 +60,13 @@ variable "https_to_port" {
 variable "static_ip_name" {
   description = "Name of static IP"
 }
+variable "app_blueprint" {
+  default = "wordpress"
 
+}
+variable "region" {
+  default = "us-east-1"
+}
+variable "cache_behavior" {
+  description = "The cache behavior for this distribution. You must specify exactly one default cache behavior. You must specify exactly one default cache behavior. cache or dont-cache"
+}

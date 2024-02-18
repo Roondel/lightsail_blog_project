@@ -1,5 +1,5 @@
 resource "aws_lightsail_instance" "lightsail_instance" {
-  blueprint_id      = var.blueprint
+  blueprint_id      = var.app_blueprint
   bundle_id         = var.bundle
   name              = var.instance_name
   availability_zone = var.az
@@ -28,4 +28,17 @@ resource "aws_lightsail_instance_public_ports" "lightsail_ports" {
     to_port   = var.https_to_port
   }
 }
+resource "aws_lightsail_distribution" "wordpress_distro" {
+  name             = var.distro_name
+  depends_on       = [aws_lightsail_static_ip_attachment.lightsail_static_ip_attachment]
+  bundle_id        = var.distro_bundle
+  certificate_name = aws_lightsail_certificate.lightsail_cert.id
+  origin {
+    name        = aws_lightsail_instance.lightsail_instance.name
+    region_name = var.region
+  }
+  default_cache_behavior {
+    behavior = var.cache_behavior
+  }
 
+}
